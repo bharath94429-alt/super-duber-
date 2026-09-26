@@ -1,0 +1,6 @@
+{
+  "name": "Technical Quiz Competition",
+  "description": "Technical Quiz Competition platform featuring mobile-first candidate examination and real-time organizer proctoring.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
