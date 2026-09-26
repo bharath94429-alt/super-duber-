@@ -517,112 +517,77 @@ INSERT INTO public.quizzes (
   3,
   true,
   true,
-  15,
+  10,
   '[
     {
       "id": 1,
-      "topic": "Data Structures",
-      "text": "Which linear data structure follows the LIFO (Last-In, First-Out) principle for insertion and deletion?",
-      "options": ["Queue", "Tree", "Stack", "Linked List"],
-      "correctIndex": 2
+      "topic": "Programming Fundamentals",
+      "text": "Which built-in Python data structure is immutable and defined using parentheses ()?",
+      "options": ["List", "Tuple", "Dictionary", "Set"],
+      "correctIndex": 1
     },
     {
       "id": 2,
-      "topic": "Data Structures",
-      "text": "Which data structure operates strictly on a FIFO (First-In, First-Out) order?",
-      "options": ["Queue", "Stack", "Binary Search Tree", "Graph"],
-      "correctIndex": 0
+      "topic": "Web Development",
+      "text": "Which HTTP status code signifies that a requested resource was successfully created on the server?",
+      "options": ["200 OK", "201 Created", "204 No Content", "301 Moved Permanently"],
+      "correctIndex": 1
     },
     {
       "id": 3,
-      "topic": "Database Management Systems",
-      "text": "In relational database design, which normal form is specifically aimed at eliminating transitive functional dependencies?",
-      "options": ["First Normal Form (1NF)", "Second Normal Form (2NF)", "Third Normal Form (3NF)", "Fourth Normal Form (4NF)"],
-      "correctIndex": 2
+      "topic": "Data Structures",
+      "text": "Which data structure is primarily used to implement Breadth-First Search (BFS) in a graph?",
+      "options": ["Stack", "Queue", "Priority Queue", "Binary Search Tree"],
+      "correctIndex": 1
     },
     {
       "id": 4,
-      "topic": "Object-Oriented Programming",
-      "text": "In Java/OOP, what term describes having multiple methods within the same class with the same name but different parameter lists?",
-      "options": ["Method Overriding", "Method Overloading", "Encapsulation", "Dynamic Binding"],
+      "topic": "Database Systems",
+      "text": "In SQL, which clause is used to filter records after aggregate functions (like COUNT, SUM, AVG) have been applied?",
+      "options": ["WHERE", "HAVING", "GROUP BY", "ORDER BY"],
       "correctIndex": 1
     },
     {
       "id": 5,
       "topic": "Operating Systems",
-      "text": "Which CPU scheduling algorithm assigns a fixed time quantum to each ready process in cyclic order?",
-      "options": ["First Come First Served (FCFS)", "Round Robin (RR)", "Shortest Job First (SJF)", "Priority Scheduling"],
+      "text": "What condition occurs when a CPU spends more time swapping virtual memory pages in and out of disk than executing processes?",
+      "options": ["Deadlock", "Thrashing", "Starvation", "Context Switching"],
       "correctIndex": 1
     },
     {
       "id": 6,
       "topic": "Computer Networks",
-      "text": "Which layer of the OSI reference model provides reliable, end-to-end communication and flow control using TCP/UDP?",
-      "options": ["Network Layer", "Transport Layer", "Data Link Layer", "Session Layer"],
-      "correctIndex": 1
-    },
-    {
-      "id": 7,
-      "topic": "Digital Principles & Computer Organization",
-      "text": "Which digital logic gate produces a HIGH (1) output if and only if all of its input signals are HIGH (1)?",
-      "options": ["OR Gate", "AND Gate", "NOR Gate", "XOR Gate"],
-      "correctIndex": 1
-    },
-    {
-      "id": 8,
-      "topic": "Design & Analysis of Algorithms",
-      "text": "What is the worst-case time complexity of searching an element in a sorted array of size n using Binary Search?",
-      "options": ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
+      "text": "What is the standard port number used for secure HTTPS web traffic?",
+      "options": ["21", "80", "443", "8080"],
       "correctIndex": 2
     },
     {
-      "id": 9,
-      "topic": "Operating Systems",
-      "text": "Which of the following is NOT one of Coffman''s four necessary conditions for a system deadlock to occur?",
-      "options": ["Mutual Exclusion", "Hold and Wait", "No Preemption", "Paging and Segmentation"],
-      "correctIndex": 3
-    },
-    {
-      "id": 10,
-      "topic": "Database Management Systems",
-      "text": "Which SQL DDL/DML command permanently deletes all rows from a table while retaining its structure and schema?",
-      "options": ["DELETE", "TRUNCATE", "DROP", "ALTER"],
-      "correctIndex": 1
-    },
-    {
-      "id": 11,
-      "topic": "Computer Fundamentals",
-      "text": "What does CPU stand for?",
-      "options": ["Central Processing Unit", "Central Power Unit", "Computer Personal Unit", "Control Program Utility"],
+      "id": 7,
+      "topic": "Algorithms",
+      "text": "What is the average time complexity of searching for a key in a standard Hash Table?",
+      "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
       "correctIndex": 0
     },
     {
-      "id": 12,
-      "topic": "Web Basics",
-      "text": "What does HTML stand for in web development?",
-      "options": ["High Tech Multi Language", "HyperText Markup Language", "Home Tool Modern Language", "Hyperlink and Text Model"],
+      "id": 8,
+      "topic": "Software Engineering",
+      "text": "In Git, which command creates a new branch and immediately switches to it in a single step?",
+      "options": ["git branch -d", "git checkout -b", "git merge --squash", "git pull --rebase"],
       "correctIndex": 1
     },
     {
-      "id": 13,
-      "topic": "Programming Basics",
-      "text": "Which symbol is used for a single-line comment in JavaScript, C, C++, and Java?",
-      "options": ["#", "//", "<!--", "/*"],
-      "correctIndex": 1
+      "id": 9,
+      "topic": "Software Architecture",
+      "text": "Which core Object-Oriented Programming (OOP) principle restricts direct access to an object''s internal state and bundles data with methods?",
+      "options": ["Encapsulation", "Inheritance", "Polymorphism", "Abstraction"],
+      "correctIndex": 0
     },
     {
-      "id": 14,
-      "topic": "Computer Fundamentals",
-      "text": "How many bits are there in one standard byte?",
-      "options": ["4 bits", "8 bits", "16 bits", "32 bits"],
-      "correctIndex": 1
-    },
-    {
-      "id": 15,
-      "topic": "Computer Fundamentals",
-      "text": "Which of the following is considered volatile primary memory in a computer?",
-      "options": ["Hard Disk Drive (HDD)", "RAM (Random Access Memory)", "ROM (Read-Only Memory)", "Optical Disc (DVD)"],
-      "correctIndex": 1
+      "id": 10,
+      "topic": "Information Security",
+      "text": "Which cryptographic algorithm is an asymmetric (public-key) cipher widely used for secure data transmission and digital signatures?",
+      "options": ["AES", "DES", "RSA", "Blowfish"],
+      "correctIndex": 2
     }
   ]'::jsonb
 )
