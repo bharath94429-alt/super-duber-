@@ -120,5 +120,65 @@ export const DEFAULT_OFFICIAL_QUESTIONS: Question[] = [
       "ALTER"
     ],
     correctIndex: 1
+  },
+  {
+    id: 11,
+    topic: "Computer Fundamentals",
+    text: "What does CPU stand for?",
+    options: [
+      "Central Processing Unit",
+      "Central Power Unit",
+      "Computer Personal Unit",
+      "Control Program Utility"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 12,
+    topic: "Web Basics",
+    text: "What does HTML stand for in web development?",
+    options: [
+      "High Tech Multi Language",
+      "HyperText Markup Language",
+      "Home Tool Modern Language",
+      "Hyperlink and Text Model"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 13,
+    topic: "Programming Basics",
+    text: "Which symbol is used for a single-line comment in JavaScript, C, C++, and Java?",
+    options: [
+      "#",
+      "//",
+      "<!--",
+      "/*"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 14,
+    topic: "Computer Fundamentals",
+    text: "How many bits are there in one standard byte?",
+    options: [
+      "4 bits",
+      "8 bits",
+      "16 bits",
+      "32 bits"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 15,
+    topic: "Computer Fundamentals",
+    text: "Which of the following is considered volatile primary memory in a computer?",
+    options: [
+      "Hard Disk Drive (HDD)",
+      "RAM (Random Access Memory)",
+      "ROM (Read-Only Memory)",
+      "Optical Disc (DVD)"
+    ],
+    correctIndex: 1
   }
 ];
