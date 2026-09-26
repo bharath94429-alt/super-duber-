@@ -36,14 +36,21 @@ export const ParticipantRegister: React.FC<ParticipantRegisterProps> = ({
 
     setLoading(true);
     try {
+      console.log('[Register UI] Submitting participant registration to Supabase:', {
+        name: trimmedName,
+        participantId: trimmedId,
+        department: department.trim()
+      });
       const response = await api.register({
         name: trimmedName,
         participantId: trimmedId,
         department: department.trim()
       });
+      console.log('[Register UI] Participant successfully created in Supabase with UUID:', response.token);
       onSuccess(response);
     } catch (err: any) {
-      setError(err.message || 'Failed to register. Please check your details.');
+      console.error('[Register UI] Participant creation failed in Supabase:', err);
+      setError(err.message || 'Failed to register with Supabase database. Please try again.');
     } finally {
       setLoading(false);
     }

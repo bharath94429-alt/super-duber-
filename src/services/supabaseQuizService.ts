@@ -178,6 +178,7 @@ export class SupabaseQuizService {
         is_demo: false
       };
 
+      console.log('[Supabase Service] Executing participants.insert():', newParticipant);
       const { data: created, error: insertErr } = await client
         .from('participants')
         .insert(newParticipant)
@@ -185,9 +186,11 @@ export class SupabaseQuizService {
         .single();
 
       if (insertErr) {
-        throw new Error(`Registration failed: ${insertErr.message}`);
+        console.error('[Supabase Service] participants.insert() FAILED:', insertErr);
+        throw new Error(`Registration failed in database: ${insertErr.message} (Code: ${insertErr.code || 'UNKNOWN'})`);
       }
       participantRow = created;
+      console.log('[Supabase Service] Participant row created with UUID:', participantRow.id);
 
       // Log started event in violations table for timeline tracking
       await client.from('violations').insert({

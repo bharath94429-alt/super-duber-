@@ -1,6 +1,8 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
 export const DEFAULT_QUIZ_ID = '7c9e6679-7425-40de-944b-e07fc1f90ae7';
+export const CANONICAL_SUPABASE_URL = 'https://aezzrrwmyeisxufczjrc.supabase.co';
+export const CANONICAL_SUPABASE_ANON_KEY = 'sb_publishable_02lFBuTkhM7v8QMw55WuHg_8ucucUAy';
 
 // Key storage for manual configuration fallback if environment variables are not injected into the client bundle
 const STORAGE_SUPABASE_URL = 'tech_test_supabase_url';
@@ -16,22 +18,37 @@ export interface SupabaseConfig {
 }
 
 export const getSupabaseConfig = (): SupabaseConfig => {
-  // 1. Vite environment variables (VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY)
-  const envUrl = (import.meta.env.VITE_SUPABASE_URL || '').trim();
-  const envAnonKey = (import.meta.env.VITE_SUPABASE_ANON_KEY || '').trim();
+  let envUrl = '';
+  let envAnonKey = '';
+
+  // 1. Vite environment variables (safe check for import.meta.env)
+  try {
+    if (typeof import.meta !== 'undefined' && import.meta && (import.meta as any).env) {
+      envUrl = ((import.meta as any).env.VITE_SUPABASE_URL || '').trim();
+      envAnonKey = ((import.meta as any).env.VITE_SUPABASE_ANON_KEY || '').trim();
+    }
+  } catch {
+    // ignore
+  }
+
+  // 2. Node / process environment variables (if in node context)
+  if (!envUrl && typeof process !== 'undefined' && process && process.env) {
+    envUrl = (process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL || '').trim();
+    envAnonKey = (process.env.VITE_SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY || '').trim();
+  }
 
   if (envUrl && envAnonKey) {
     return { url: envUrl, anonKey: envAnonKey, isCustom: false };
   }
 
-  // 2. Window config (if provided by server /api/supabase/config)
+  // 3. Window config (if provided by server /api/supabase/config)
   if (typeof window !== 'undefined') {
     const winConfig = (window as any).__SUPABASE_CONFIG__;
     if (winConfig?.url && winConfig?.anonKey) {
       return { url: winConfig.url, anonKey: winConfig.anonKey, isCustom: false };
     }
 
-    // 3. User manual override stored in localStorage
+    // User manual override stored in localStorage
     const savedUrl = (localStorage.getItem(STORAGE_SUPABASE_URL) || '').trim();
     const savedAnonKey = (localStorage.getItem(STORAGE_SUPABASE_ANON_KEY) || '').trim();
     if (savedUrl && savedAnonKey) {
@@ -39,7 +56,12 @@ export const getSupabaseConfig = (): SupabaseConfig => {
     }
   }
 
-  return { url: '', anonKey: '', isCustom: false };
+  // 4. Canonical project fallback (ensures immediate database connection across all client devices)
+  return {
+    url: CANONICAL_SUPABASE_URL,
+    anonKey: CANONICAL_SUPABASE_ANON_KEY,
+    isCustom: false
+  };
 };
 
 export const isSupabaseConfigured = (): boolean => {
